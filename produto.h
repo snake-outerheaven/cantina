@@ -1,19 +1,34 @@
 #ifndef PRODUTO_H
 #define PRODUTO_H
 
-typedef struct item_t item_t;
-item_t *createItem(int id, const char *nome, double preco, int quant);
-void destroyItem(item_t **it);
+#include <string>
 
-int getId(const item_t *it, int *dst);
-int getNome(const item_t *it, char *dst);
-int getPreco(const item_t *it, double *dst);
-int getQuant(const item_t *it);
 
-int setPreco(item_t *it, double preco); /* 1 ok, 0 erro */
-int addEstoque(item_t *it, int quant);
-int remEstoque(item_t *it, int quant);
+class Produto {
 
-void exibir(const item_t *it);
 
-#endif
+	using string = std::string; // esconde no contexto da classe, pois tudo dentro de um class por si so e privado, o private abaixo e apenas para se adequar
+				    // ao trabalho hehehe
+
+	private:
+		int cod;
+		string nome;
+		double pric;
+		int quant;
+
+	public:
+
+		Produto(int cod, const string& nome, double prec) : cod(cod), nome(nome), pric(price), quant(0) {}
+
+		int getCod(void) const;
+		string getNm(void) const;
+		double getPric(void) const;
+		int getQuant(void) const;
+		bool setPreco(double);
+		bool addStock(double);
+		bool remStock(double);
+		void exibir(void) const;
+
+};
+
+#endif 
