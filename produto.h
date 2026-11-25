@@ -3,32 +3,30 @@
 
 #include <string>
 
-
 class Produto {
 
+  using string =
+      std::string; // esconde no contexto da classe, pois tudo dentro de um
+                   // class por si so e privado, o private abaixo e apenas para
+                   // se adequar ao trabalho hehehe
 
-	using string = std::string; // esconde no contexto da classe, pois tudo dentro de um class por si so e privado, o private abaixo e apenas para se adequar
-				    // ao trabalho hehehe
+private:
+  int codigo;
+  string nome;
+  double preco;
+  int quantidade;
 
-	private:
-		int cod;
-		string nome;
-		double pric;
-		int quant;
-
-	public:
-
-		Produto(int cod, const string& nome, double prec) : cod(cod), nome(nome), pric(price), quant(0) {}
-
-		int getCod(void) const;
-		string getNm(void) const;
-		double getPric(void) const;
-		int getQuant(void) const;
-		bool setPreco(double);
-		bool addStock(double);
-		bool remStock(double);
-		void exibir(void) const;
-
+public:
+  Produto(int codigo, const string &nome, double preco)
+      : codigo(codigo), nome(nome), preco(preco), quantidade(0) {}
+  int getQuant(void) const;
+  string getNome(void) const;
+  double getPreco(void) const;
+  int getQuantidade(void) const;
+  bool setPreco(double);
+  bool adicionarEstoque(int);
+  bool removerEstoque(int);
+  void exibir(void) const;
 };
 
-#endif 
+#endif
