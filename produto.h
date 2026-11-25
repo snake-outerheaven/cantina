@@ -14,8 +14,7 @@ private:
   int quantidade;
 
 public:
-  Produto(int codigo, const string &nome, double preco)
-      : codigo(codigo), nome(nome), preco(preco), quantidade(0) {}
+  Produto(int codigo, const string &nome, double preco);
   int getCodigo(void) const;
   string getNome(void) const;
   double getPreco(void) const;
