@@ -3,6 +3,11 @@
 #include <iostream>
 #include <string>
 
+Produto::Produto(int codigo, const Produto::string &nome, double preco)
+    : codigo(codigo), nome(nome), preco(preco), quantidade(0) {
+  if (preco <= 0)
+    this->preco = 1.0;
+}
 int Produto::getCodigo(void) const { return this->codigo; }
 
 Produto::string Produto::getNome(void) const { return this->nome; }
