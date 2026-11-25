@@ -9,23 +9,22 @@ Produto::string Produto::getNome(void) const { return this->nome; }
 
 double Produto::getPreco(void) const { return this->preco; }
 
-int getQuantidade(void) const { return this->quantidade; }
+int Produto::getQuantidade(void) const { return this->quantidade; }
 
 bool Produto::setPreco(double novoPreco) {
 
-  if (novoPreco > 0)
+  if (novoPreco > 0) {
     this->preco = novoPreco;
+    return true;
+  }
 
-  std::cerr << "Recusado.\n";
   return false;
 }
 
 bool Produto::adicionarEstoque(int qtd) {
 
-  if (qtd <= 0) {
-    std::cerr << "Recusado.\n;
-        return false;
-  }
+  if (qtd <= 0)
+    return false;
 
   this->quantidade += qtd;
 
@@ -44,8 +43,8 @@ bool Produto::removerEstoque(int qtd) {
 
 void Produto::exibir(void) const {
 
-  std::cout << std::setprecision(2) << std::fixed();
+  std::cout << std::setprecision(2) << std::fixed;
 
-  std::cout << '[' << getCodigo() << "] " << getNome() << " R$ " << getPreco
-            << " | " << getQuantidade() << " un.\n;
+  std::cout << '[' << getCodigo() << "] " << getNome() << " | R$ " << getPreco()
+            << " | " << getQuantidade() << " un.\n";
 }
