@@ -47,8 +47,7 @@ bool Cantina::vender(int codigo, int quantidade) {
     return false;
 
   if (produtos.at(i).removerEstoque(quantidade)) {
-    caixa += produtos.at(i).getPreco() *
-             static_cast<double>(produtos.at(i).getQuantidade());
+    caixa += produtos.at(i).getPreco() * static_cast<double>(quantidade);
     return true;
   }
 
