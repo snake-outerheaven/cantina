@@ -115,7 +115,7 @@ int main() {
       cantina.listarProdutos();
       break;
     case 6:
-      cout << "Caixa: R$ " << fixed << setprecision(2) 1 << cantina.getCaixa()
+      cout << "Caixa: R$ " << fixed << setprecision(2) << cantina.getCaixa()
            << endl;
       break;
     case 0:

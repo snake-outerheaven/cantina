@@ -1,9 +1,9 @@
 #include "cantina.h"
 #include "produto.h"
 
-int Cantina::buscarIndice(int codigo) {
+int Cantina::buscarIndice(int codigo) const {
 
-  for (int i{0}; i < produtos.size(); i++)
+  for (size_t i{0}; i < produtos.size(); i++)
     if (codigo == produtos.at(i).getCodigo())
       return i;
   // complexidade O(N), com sort, da pra fazer busca binaria e reduzir
@@ -46,8 +46,11 @@ bool Cantina::vender(int codigo, int quantidade) {
   if ((i = buscarIndice(codigo)) == -1)
     return false;
 
-  if (produtos.at(i).removerEstoque(quantidade))
+  if (produtos.at(i).removerEstoque(quantidade)) {
+    caixa += produtos.at(i).getPreco() *
+             static_cast<double>(produtos.at(i).getQuantidade());
     return true;
+  }
 
   return false;
 }
@@ -66,7 +69,7 @@ bool Cantina::alterarPreco(int codigo, double preco) {
 
 void Cantina::listarProdutos(void) const {
 
-  for (int i = 0; i < produtos.size(); i++)
+  for (size_t i = 0; i < produtos.size(); i++)
     produtos.at(i).exibir();
 }
 
