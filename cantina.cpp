@@ -1,5 +1,6 @@
 #include "cantina.h"
 #include "produto.h"
+#include <iostream>
 
 int Cantina::buscarIndice(int codigo) const {
 
@@ -67,6 +68,9 @@ bool Cantina::alterarPreco(int codigo, double preco) {
 }
 
 void Cantina::listarProdutos(void) const {
+
+  if (this->produtos.empty())
+    std::cerr << "Estoque vazio.\n";
 
   for (size_t i = 0; i < produtos.size(); i++)
     produtos.at(i).exibir();
