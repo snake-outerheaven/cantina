@@ -13,6 +13,8 @@ private:
   std::vector<Produto> produtos;
   double caixa;
 
+  int buscarIndice(int codigo) const;
+
 public:
   Cantina(void); // construtor, caixa inicializa em zero
   bool cadastrarProduto(int codigo, const string &nome, double preco);
